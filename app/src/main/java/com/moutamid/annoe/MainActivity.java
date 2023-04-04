@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame, new HomeFragment()).commit();
                         break;
                     case R.id.nav_list:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new ListFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.frame, new ListFragment(binding.navigation)).commit();
                         break;
                     case R.id.nav_stat:
                         getSupportFragmentManager().beginTransaction().replace(R.id.frame, new StatFragment()).commit();

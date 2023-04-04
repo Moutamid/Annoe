@@ -57,8 +57,13 @@ public class StatFragment extends Fragment {
         list = new ArrayList<>();
 
         Glide.with(requireContext()).load(Constants.TEST_IMAGE).into(binding.image);
-
-        binding.recyler.setLayoutManager(new LinearLayoutManager(requireContext()));
+        LinearLayoutManager lm = new LinearLayoutManager(getContext()) {
+            @Override
+            public boolean canScrollVertically() {
+                return false;
+            }
+        };
+        binding.recyler.setLayoutManager(lm);
         binding.recyler.setHasFixedSize(false);
 
         getRepo();

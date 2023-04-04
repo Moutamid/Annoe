@@ -11,9 +11,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.moutamid.annoe.R;
 import com.moutamid.annoe.adapters.RepoAdapter;
+import com.moutamid.annoe.constants.ClickListner;
 import com.moutamid.annoe.constants.Constants;
 import com.moutamid.annoe.databinding.FragmentListBinding;
 import com.moutamid.annoe.models.Model;
@@ -37,8 +40,16 @@ public class ListFragment extends Fragment {
     ArrayList<Model> list;
     RepoAdapter adapter;
     ProgressDialog progressDialog;
+
+    BottomNavigationView bottomNavigationView;
+    FrameLayout frame;
+
     public ListFragment() {
         // Required empty public constructor
+    }
+
+    public ListFragment(BottomNavigationView bottomNavigationView) {
+        this.bottomNavigationView = bottomNavigationView;
     }
 
 
@@ -122,7 +133,7 @@ public class ListFragment extends Fragment {
 
                         Collections.reverse(list);
 
-                        adapter = new RepoAdapter(requireContext(), list);
+                        adapter = new RepoAdapter(requireContext(), list, clickListner);
                         adapter.notifyDataSetChanged();
                         binding.recycler.setAdapter(adapter);
                     } catch (JSONException e) {
@@ -132,5 +143,14 @@ public class ListFragment extends Fragment {
             }
         }).start();
     }
+
+    ClickListner clickListner = new ClickListner() {
+        @Override
+        public void onClick(int pos) {
+            if (pos == 0){
+                bottomNavigationView.setSelectedItemId(R.id.nav_stat);
+            }
+        }
+    };
 
 }

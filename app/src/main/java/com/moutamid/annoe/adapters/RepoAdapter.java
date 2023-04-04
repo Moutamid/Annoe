@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.card.MaterialCardView;
 import com.moutamid.annoe.R;
+import com.moutamid.annoe.constants.ClickListner;
 import com.moutamid.annoe.models.Model;
 
 import java.text.ParseException;
@@ -21,10 +22,12 @@ import java.util.Date;
 public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.RepoVH> {
     Context context;
     ArrayList<Model> list;
+    ClickListner clickListner;
 
-    public RepoAdapter(Context context, ArrayList<Model> list) {
+    public RepoAdapter(Context context, ArrayList<Model> list, ClickListner clickListner) {
         this.context = context;
         this.list = list;
+        this.clickListner = clickListner;
     }
 
     @NonNull
@@ -42,6 +45,10 @@ public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.RepoVH> {
             holder.versionNum.setTextColor(context.getResources().getColor(R.color.background));
             holder.versionCard.setCardBackgroundColor(context.getResources().getColor(R.color.yellow));
         }
+
+        holder.itemView.setOnClickListener(v -> {
+            clickListner.onClick(holder.getAdapterPosition());
+        });
 
         holder.accuracy.setText("Accuracy - " + model.getAccuracy());
         holder.elapsedTime.setText("Elapsed time - " + model.getElapsed_time() + "s");
