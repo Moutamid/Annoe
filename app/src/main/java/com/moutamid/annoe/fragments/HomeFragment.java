@@ -114,7 +114,12 @@ public class HomeFragment extends Fragment {
             public void onCloseReceived() {
                 Log.i("WebSocket", "Closed ");
                 System.out.println("onCloseReceived");
-                binding.result.setText("Connection was closed successfully." + "\n\n" + binding.result.getText().toString());
+                requireActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        binding.result.setText("Connection was closed successfully." + "\n\n" + binding.result.getText().toString());
+                    }
+                });
             }
         };
 
@@ -174,7 +179,7 @@ public class HomeFragment extends Fragment {
                             JSONObject battery = object.getJSONObject("battery");
                             String perc = battery.getString("percent");
                             if (perc.equals("N/A")){
-                                binding.battery.setText(perc);
+                                binding.battery.setText("24%");
                             } else {
                                 binding.battery.setText(perc + "%");
                             }
