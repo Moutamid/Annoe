@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="List" android:id="@+id/nav_list" android:icon="@drawable/list_nav" />
+    <item android:title="Home" android:id="@+id/nav_home" android:icon="@drawable/home_nav" />
+    <item android:title="Stat" android:id="@+id/nav_stat" android:icon="@drawable/stat_nav" />
+</menu>

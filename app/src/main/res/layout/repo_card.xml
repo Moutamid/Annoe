@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/tar"
+    android:layout_margin="15sp"
+    app:cardElevation="0dp"
+    app:strokeWidth="1sp"
+    app:strokeColor="@color/stroke"
+    app:cardCornerRadius="17sp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12sp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/versionCard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            app:cardBackgroundColor="@color/inside"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="12sp"
+            android:layout_margin="12sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="12sp">
+
+                <TextView
+                    android:id="@+id/versionNumb"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="v1.5"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:textSize="36sp"
+                    android:textColor="@color/font" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/elapsedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/font"
+            android:fontFamily="@font/sf_pro"
+            android:textStyle="bold"
+            android:text="Elapsed time - 235s"
+            android:layout_marginTop="12sp" />
+
+        <TextView
+            android:id="@+id/accuracy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/font"
+            android:fontFamily="@font/sf_pro"
+            android:textStyle="bold"
+            android:layout_below="@id/elapsedTime"
+            android:text="Accuracy - 0.8754"
+            android:layout_marginTop="6sp" />
+
+        <TextView
+            android:id="@+id/loss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17sp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/font"
+            android:fontFamily="@font/sf_pro"
+            android:layout_below="@id/accuracy"
+            android:textStyle="bold"
+            android:text="Loss - 0.33"
+            android:layout_marginTop="6sp" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/versionCard"
+            android:layout_marginStart="12sp"
+            android:layout_marginTop="12sp"
+            android:textColor="@color/font"
+            android:fontFamily="@font/sf_pro"
+            android:text="Created on 05th of Feb, 2023 @ 10:45PM" />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>
