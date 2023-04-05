@@ -8,11 +8,12 @@ public class Model {
     int epochs;
     String prediction_ratio;
     int model_size;
+    String aware_optimizer, post_optimizer;
 
     public Model() {
     }
 
-    public Model(String id, String model, String version, int elapsed_time, double accuracy, double loss, String created_at, int epochs, String prediction_ratio, int model_size) {
+    public Model(String id, String model, String version, int elapsed_time, double accuracy, double loss, String created_at, int epochs, String prediction_ratio, int model_size, String aware_optimizer, String post_optimizer) {
         this.id = id;
         this.model = model;
         this.version = version;
@@ -23,6 +24,8 @@ public class Model {
         this.epochs = epochs;
         this.prediction_ratio = prediction_ratio;
         this.model_size = model_size;
+        this.aware_optimizer = aware_optimizer;
+        this.post_optimizer = post_optimizer;
     }
 
     public String getId() {
@@ -103,5 +106,21 @@ public class Model {
 
     public void setModel_size(int model_size) {
         this.model_size = model_size;
+    }
+
+    public String getAware_optimizer() {
+        return aware_optimizer;
+    }
+
+    public void setAware_optimizer(String aware_optimizer) {
+        this.aware_optimizer = aware_optimizer;
+    }
+
+    public String getPost_optimizer() {
+        return post_optimizer;
+    }
+
+    public void setPost_optimizer(String post_optimizer) {
+        this.post_optimizer = post_optimizer;
     }
 }

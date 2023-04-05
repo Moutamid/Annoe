@@ -126,7 +126,9 @@ public class ListFragment extends Fragment {
                                     object.getString("created_at"),
                                     object.getInt("epochs"),
                                     object.getString("prediction_ratio"),
-                                    object.getInt("model_size")
+                                    object.getInt("model_size"),
+                                    object.getString("aware_optimizer"),
+                                    object.getString("post_optimizer")
                             );
                             list.add(model);
                         }

@@ -129,9 +129,13 @@ public class StatFragment extends Fragment {
                                     object.getString("created_at"),
                                     object.getInt("epochs"),
                                     object.getString("prediction_ratio"),
-                                    object.getInt("model_size")
+                                    object.getInt("model_size"),
+                                    object.getString("aware_optimizer"),
+                                    object.getString("post_optimizer")
                             );
                             binding.versionNumb.setText("v"+model.getVersion());
+                            binding.postOpt.setText(model.getPost_optimizer());
+                            binding.optim.setText(model.getAware_optimizer());
                             for (String s : iterate(object.keys())) {
                                 if (s.equals("elapsed_time")){
                                     stats = new Stats("Elapsed time", model.getElapsed_time()+"s");
