@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment {
         });
 
         createWebSocketClient();
-        createTrainClient();
+        //createTrainClient();
 
         return binding.getRoot();
     }
