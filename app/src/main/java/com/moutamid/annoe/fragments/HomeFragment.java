@@ -183,7 +183,7 @@ public class HomeFragment extends Fragment {
                             JSONObject battery = object.getJSONObject("battery");
                             String perc = battery.getString("percent");
                             if (perc.equals("N/A")){
-                                binding.battery.setText("24%");
+                                binding.battery.setText("N/A");
                             } else {
                                 binding.battery.setText(perc + "%");
                             }
