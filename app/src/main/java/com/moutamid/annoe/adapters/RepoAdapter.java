@@ -47,7 +47,7 @@ public class RepoAdapter extends RecyclerView.Adapter<RepoAdapter.RepoVH> {
         }
 
         holder.itemView.setOnClickListener(v -> {
-            clickListner.onClick(holder.getAdapterPosition());
+            clickListner.onClick(holder.getAdapterPosition(), model.getVersion());
         });
 
         holder.accuracy.setText("Accuracy - " + model.getAccuracy());

@@ -21,10 +21,12 @@ import java.net.URL;
 public class Constants {
 
     public static final String REPO_ALL = "http://128.199.84.194:8000/repository-all";
-    public static final String MODEL_API = "http://128.199.84.194:8000/models/1.0";
+    public static final String MODEL_API = "http://128.199.84.194:8000/models/";
     public static final String TEST_IMAGE = "http://128.199.84.194:8000/image/test_img.png";
     public static final String LIVE_DATA = "ws://128.199.84.194:8000/system-stat/ws";
     public static final String TRAIN_DATA = "ws://128.199.84.194:8000/training-logs/ws";
+    public static final String VERSION = "version";
+    public static final String CURRENT = "CURRENT";
 
     public static void checkApp(Activity activity) {
         String appName = "annoe";

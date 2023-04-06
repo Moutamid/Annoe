@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
+import com.fxn.stash.Stash;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.moutamid.annoe.R;
 import com.moutamid.annoe.adapters.RepoAdapter;
@@ -148,10 +149,9 @@ public class ListFragment extends Fragment {
 
     ClickListner clickListner = new ClickListner() {
         @Override
-        public void onClick(int pos) {
-            if (pos == 0){
-                bottomNavigationView.setSelectedItemId(R.id.nav_stat);
-            }
+        public void onClick(int pos, String version) {
+            Stash.put(Constants.VERSION, version);
+            bottomNavigationView.setSelectedItemId(R.id.nav_stat);
         }
     };
 

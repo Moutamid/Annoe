@@ -11,8 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.fxn.stash.Stash;
 import com.moutamid.annoe.R;
 import com.moutamid.annoe.adapters.RepoAdapter;
 import com.moutamid.annoe.adapters.StatsAdapter;
@@ -42,6 +44,7 @@ public class StatFragment extends Fragment {
     Stats stats;
     StatsAdapter adapter;
     ProgressDialog progressDialog;
+    String version;
     public StatFragment() {
         // Required empty public constructor
     }
@@ -56,6 +59,15 @@ public class StatFragment extends Fragment {
 
         list = new ArrayList<>();
 
+        String v = Stash.getString(Constants.VERSION, "");
+        if (v.isEmpty()){
+            String c = Stash.getString(Constants.CURRENT);
+            version = Constants.MODEL_API + c;
+            binding.versionNumb.setText("v"+c);
+        } else {
+            version = Constants.MODEL_API + v;
+        }
+        Stash.clear(Constants.VERSION);
         Glide.with(requireContext()).load(Constants.TEST_IMAGE).into(binding.image);
         LinearLayoutManager lm = new LinearLayoutManager(getContext()) {
             @Override
@@ -77,7 +89,7 @@ public class StatFragment extends Fragment {
         new Thread(() -> {
             URL google = null;
             try {
-                google = new URL(Constants.MODEL_API);
+                google = new URL(version);
             } catch (final MalformedURLException e) {
                 e.printStackTrace();
             }
@@ -166,6 +178,7 @@ public class StatFragment extends Fragment {
 
                     } catch (JSONException e) {
                         e.printStackTrace();
+                        requireActivity().runOnUiThread(() -> Toast.makeText(requireContext(), e.getMessage(), Toast.LENGTH_SHORT).show());
                     }
                 });
             }
