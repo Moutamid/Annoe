@@ -81,11 +81,15 @@
             app:cardCornerRadius="23sp"
             app:cardElevation="0dp">
 
-            <ImageView
-                android:id="@+id/image"
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/image_slider"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"/>
+                app:iss_auto_cycle="false"
+                app:iss_period="1000"
+                app:iss_delay="1000"
+                app:iss_no_dots="true"
+                app:iss_text_align="CENTER"/>
 
         </com.google.android.material.card.MaterialCardView>
 

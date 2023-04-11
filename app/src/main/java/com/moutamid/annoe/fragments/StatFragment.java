@@ -14,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.denzcoskun.imageslider.constants.ScaleTypes;
+import com.denzcoskun.imageslider.models.SlideModel;
 import com.fxn.stash.Stash;
 import com.moutamid.annoe.R;
 import com.moutamid.annoe.adapters.RepoAdapter;
@@ -45,6 +47,8 @@ public class StatFragment extends Fragment {
     StatsAdapter adapter;
     ProgressDialog progressDialog;
     String version;
+    ArrayList<SlideModel> imageList = new ArrayList<>();
+
     public StatFragment() {
         // Required empty public constructor
     }
@@ -60,15 +64,20 @@ public class StatFragment extends Fragment {
         list = new ArrayList<>();
 
         String v = Stash.getString(Constants.VERSION, "");
-        if (v.isEmpty()){
+        if (v.isEmpty()) {
             String c = Stash.getString(Constants.CURRENT);
             version = Constants.MODEL_API + c;
-            binding.versionNumb.setText("v"+c);
+            binding.versionNumb.setText("v" + c);
         } else {
             version = Constants.MODEL_API + v;
         }
         Stash.clear(Constants.VERSION);
-        Glide.with(requireContext()).load(Constants.TEST_IMAGE).into(binding.image);
+
+        imageList.add(new SlideModel("http://128.199.84.194:8000/image1/test_img1.png", null, ScaleTypes.FIT));
+        imageList.add(new SlideModel("http://128.199.84.194:8000/image1/test_img2.png", null, ScaleTypes.FIT));
+
+        binding.imageSlider.setImageList(imageList);
+
         LinearLayoutManager lm = new LinearLayoutManager(getContext()) {
             @Override
             public boolean canScrollVertically() {
@@ -145,27 +154,27 @@ public class StatFragment extends Fragment {
                                     object.getString("aware_optimizer"),
                                     object.getString("post_optimizer")
                             );
-                            binding.versionNumb.setText("v"+model.getVersion());
+                            binding.versionNumb.setText("v" + model.getVersion());
                             binding.postOpt.setText(model.getPost_optimizer());
                             binding.optim.setText(model.getAware_optimizer());
                             for (String s : iterate(object.keys())) {
-                                if (s.equals("elapsed_time")){
-                                    stats = new Stats("Elapsed time", model.getElapsed_time()+"s");
+                                if (s.equals("elapsed_time")) {
+                                    stats = new Stats("Elapsed time", model.getElapsed_time() + "s");
                                     list.add(stats);
-                                } else if (s.equals("accuracy")){
-                                    stats = new Stats("Accuracy", ""+model.getAccuracy());
+                                } else if (s.equals("accuracy")) {
+                                    stats = new Stats("Accuracy", "" + model.getAccuracy());
                                     list.add(stats);
-                                } else if (s.equals("loss")){
-                                    stats = new Stats("Loss", ""+model.getLoss());
+                                } else if (s.equals("loss")) {
+                                    stats = new Stats("Loss", "" + model.getLoss());
                                     list.add(stats);
-                                } else if (s.equals("epochs")){
-                                    stats = new Stats("Epochs", ""+model.getEpochs());
+                                } else if (s.equals("epochs")) {
+                                    stats = new Stats("Epochs", "" + model.getEpochs());
                                     list.add(stats);
-                                } else if (s.equals("prediction_ratio")){
-                                    stats = new Stats("Prediction Ratio", ""+model.getPrediction_ratio());
+                                } else if (s.equals("prediction_ratio")) {
+                                    stats = new Stats("Prediction Ratio", "" + model.getPrediction_ratio());
                                     list.add(stats);
-                                } else if (s.equals("model_size")){
-                                    stats = new Stats("Model Size", model.getModel_size()+"MB");
+                                } else if (s.equals("model_size")) {
+                                    stats = new Stats("Model Size", model.getModel_size() + "MB");
                                     list.add(stats);
                                 }
 
