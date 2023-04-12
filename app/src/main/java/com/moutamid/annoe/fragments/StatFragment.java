@@ -1,6 +1,7 @@
 package com.moutamid.annoe.fragments;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -11,19 +12,24 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
 import com.fxn.stash.Stash;
 import com.moutamid.annoe.R;
 import com.moutamid.annoe.adapters.RepoAdapter;
+import com.moutamid.annoe.adapters.SliderAdapter;
 import com.moutamid.annoe.adapters.StatsAdapter;
 import com.moutamid.annoe.constants.Constants;
 import com.moutamid.annoe.databinding.FragmentStatBinding;
 import com.moutamid.annoe.models.Model;
 import com.moutamid.annoe.models.Stats;
+import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,6 +49,7 @@ import java.util.UUID;
 public class StatFragment extends Fragment {
     FragmentStatBinding binding;
     ArrayList<Stats> list;
+    ArrayList<String> setImageList = new ArrayList<>();
     Stats stats;
     StatsAdapter adapter;
     ProgressDialog progressDialog;
@@ -76,7 +83,11 @@ public class StatFragment extends Fragment {
         imageList.add(new SlideModel("http://128.199.84.194:8000/image1/test_img1.png", null, ScaleTypes.FIT));
         imageList.add(new SlideModel("http://128.199.84.194:8000/image1/test_img2.png", null, ScaleTypes.FIT));
 
-        binding.imageSlider.setImageList(imageList);
+        setImageList.add("http://128.199.84.194:8000/image1/test_img1.png");
+        setImageList.add("http://128.199.84.194:8000/image1/test_img2.png");
+
+        SliderAdapter adapter1 = new SliderAdapter(requireContext(), setImageList);
+        binding.imageSlider.setSliderAdapter(adapter1);
 
         LinearLayoutManager lm = new LinearLayoutManager(getContext()) {
             @Override
