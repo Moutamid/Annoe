@@ -196,40 +196,65 @@
 
         </LinearLayout>
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/retrain"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_margin="15sp"
-            app:cardCornerRadius="26sp"
-            app:cardBackgroundColor="@color/purple"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:padding="12sp"
-                android:gravity="center">
+            <ImageView
+                android:id="@+id/switchStress"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_weight="1"
+                android:layout_marginTop="15sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginBottom="15sp"
+                android:scaleType="fitXY"
+                android:layout_marginEnd="7sp"
+                android:src="@drawable/switch_off" />
 
-                <ImageView
-                    android:layout_width="wrap_content"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/retrain"
+                android:layout_width="0dp"
+                app:cardCornerRadius="69sp"
+                android:layout_marginTop="15sp"
+                android:layout_marginStart="7sp"
+                android:layout_marginBottom="15sp"
+                android:layout_marginEnd="15sp"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/purple"
+                android:layout_height="?attr/actionBarSize">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/play" />
+                    android:orientation="horizontal"
+                    android:padding="12sp"
+                    android:gravity="center">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Re-train"
-                    android:gravity="center"
-                    android:textAllCaps="true"
-                    android:layout_marginStart="12sp"
-                    android:textColor="@color/font"
-                    android:fontFamily="@font/sf_pro_bold"
-                    android:textSize="24sp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/play" />
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="Re-train"
+                        android:gravity="center"
+                        android:textAllCaps="true"
+                        android:layout_marginStart="12sp"
+                        android:textColor="@color/font"
+                        android:fontFamily="@font/sf_pro_bold"
+                        android:textSize="24sp" />
 
-        </com.google.android.material.card.MaterialCardView>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"

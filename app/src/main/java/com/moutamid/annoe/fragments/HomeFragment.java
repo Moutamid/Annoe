@@ -18,6 +18,7 @@ import com.moutamid.annoe.databinding.FragmentHomeBinding;
 
 import org.json.JSONObject;
 
+import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
 
@@ -27,6 +28,8 @@ public class HomeFragment extends Fragment {
     FragmentHomeBinding binding;
     private WebSocketClient webSocketClient;
     private WebSocketClient webTrainClient;
+    private boolean isRunning = false;
+    Thread thread;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -50,6 +53,18 @@ public class HomeFragment extends Fragment {
 
         createWebSocketClient();
         //createTrainClient();
+
+        binding.switchStress.setOnClickListener(v -> {
+            if (isRunning){
+                isRunning = false;
+                binding.switchStress.setImageResource(R.drawable.switch_off);
+                // thread.stop();
+            } else {
+                isRunning = true;
+                binding.switchStress.setImageResource(R.drawable.switch_on);
+                startStressTest();
+            }
+        });
 
         return binding.getRoot();
     }
@@ -222,6 +237,24 @@ public class HomeFragment extends Fragment {
         webSocketClient.setReadTimeout(60000);
         webSocketClient.enableAutomaticReconnection(5000);
         webSocketClient.connect();
+    }
+
+    private void startStressTest() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                // Stress the CPU by calculating a large prime number
+                BigInteger prime = BigInteger.valueOf(Long.MAX_VALUE);
+                while (isRunning) {
+                    prime = prime.nextProbablePrime();
+                }
+                // Allocate a large amount of memory
+                int[] arr = new int[1000000];
+                for (int i = 0; i < 1000000 && isRunning; i++) {
+                    arr[i] = i;
+                }
+            }
+        }).start();
     }
 
     @Override
