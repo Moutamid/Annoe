@@ -13,14 +13,40 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="28sp"
-            android:textColor="@color/font"
-            android:text="Optimization"
-            android:fontFamily="@font/sf_pro_bold"
-            android:layout_margin="15sp" />
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="28sp"
+                android:textColor="@color/font"
+                android:text="Optimization"
+                android:layout_weight="1"
+                android:fontFamily="@font/sf_pro_bold"
+                android:layout_margin="15sp" />
+
+            <ImageButton
+                android:id="@+id/setting"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/setting"
+                android:background="@color/background"
+                android:layout_marginEnd="12sp" />
+
+            <ImageButton
+                android:id="@+id/quest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/question"
+                android:background="@color/background"
+                android:layout_marginEnd="15sp" />
+
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"

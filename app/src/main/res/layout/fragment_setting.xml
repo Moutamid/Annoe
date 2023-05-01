@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:fillViewport="true"
+    tools:context=".fragments.SettingFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="15sp"
+                android:layout_weight="1"
+                android:fontFamily="@font/sf_pro_bold"
+                android:text="Settings"
+                android:textColor="@color/font"
+                android:textSize="28sp" />
+
+            <ImageButton
+                android:id="@+id/quest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="15sp"
+                android:background="@color/background"
+                android:src="@drawable/question" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15sp"
+            android:fontFamily="@font/sf_pro_bold"
+            android:text="Stress Intensity"
+            android:textColor="@color/font"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15sp"
+            android:layout_marginTop="15sp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="26sp"
+                android:layout_height="26sp"
+                android:src="@drawable/bi_cpu"
+                app:tint="@color/yellow" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5sp"
+                android:fontFamily="@font/sf_pro_bold"
+                android:text="CPU"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <com.zhouyou.view.seekbar.SignSeekBar
+            android:id="@+id/seek_bar_CPU"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:ssb_section_text_position="bottom_sides"
+            app:ssb_show_progress_in_float="false"
+            app:ssb_show_section_mark="true"
+            app:ssb_show_section_text="true"
+            app:ssb_seek_by_section="false"
+            app:ssb_show_sign="true"
+            app:ssb_touch_to_seek="true"
+            app:ssb_show_thumb_text="false"
+            app:ssb_sign_arrow_height="0dp"
+            app:ssb_sign_arrow_width="0dp"
+            android:layout_marginStart="15sp"
+            app:ssb_max="500"
+            app:ssb_min="1"
+            android:layout_marginEnd="15sp"
+            android:layout_marginTop="10sp"
+            app:ssb_track_color="@color/track"
+            app:ssb_second_track_color="@color/yellow"
+            app:ssb_thumb_text_color="@color/yellow"
+            app:ssb_progress="100"
+            app:ssb_section_text_color="@color/font_li"
+            app:ssb_thumb_color="@color/white"
+            app:ssb_sign_border_color="@color/yellow"
+            app:ssb_sign_border_size="1dp"
+            app:ssb_sign_color="@color/yellow"
+            app:ssb_sign_width="35sp"
+            app:ssb_sign_height="22sp"
+            app:ssb_sign_text_color="@color/background"
+            app:ssb_sign_show_border="true"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15sp"
+            android:layout_marginTop="15sp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="26sp"
+                android:layout_height="26sp"
+                android:src="@drawable/union"
+                app:tint="@color/orange" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5sp"
+                android:fontFamily="@font/sf_pro_bold"
+                android:text="Memory"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <com.zhouyou.view.seekbar.SignSeekBar
+            android:id="@+id/seek_bar_Memory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:ssb_section_text_position="bottom_sides"
+            app:ssb_show_progress_in_float="false"
+            app:ssb_show_section_mark="true"
+            app:ssb_show_section_text="true"
+            app:ssb_touch_to_seek="true"
+            app:ssb_seek_by_section="false"
+            app:ssb_progress="100"
+            app:ssb_show_sign="true"
+            app:ssb_show_thumb_text="false"
+            app:ssb_sign_arrow_height="0dp"
+            app:ssb_sign_arrow_width="0dp"
+            android:layout_marginStart="15sp"
+            android:layout_marginEnd="15sp"
+            android:layout_marginTop="10sp"
+            app:ssb_max="500"
+            app:ssb_min="1"
+            app:ssb_track_color="@color/track"
+            app:ssb_second_track_color="@color/orange"
+            app:ssb_thumb_text_color="@color/orange"
+            app:ssb_section_text_color="@color/font_li"
+            app:ssb_thumb_color="@color/white"
+            app:ssb_sign_border_color="@color/orange"
+            app:ssb_sign_border_size="1dp"
+            app:ssb_sign_color="@color/orange"
+            app:ssb_sign_width="35sp"
+            app:ssb_sign_height="22sp"
+            app:ssb_sign_text_color="@color/background"
+            app:ssb_sign_show_border="true"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15sp"
+            android:fontFamily="@font/sf_pro_bold"
+            android:text="Mobile Resources Utilization"
+            android:textColor="@color/font"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:text="Optimize battery usage"
+                    android:textColor="@color/font"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro"
+                    android:text="Retraining will happen when the battery level is\nhigher than 50% or plugged in."
+                    android:layout_marginTop="6sp"
+                    android:textColor="@color/font_li"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/opt_bat"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15sp"
+                android:src="@drawable/toggle_off" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:text="Optimize CPU usage"
+                    android:textColor="@color/font"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro"
+                    android:text="Retraining will happen when CPU usage is below\n50% or in an ideal state."
+                    android:layout_marginTop="6sp"
+                    android:textColor="@color/font_li"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/opt_cpu"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15sp"
+                android:src="@drawable/toggle_off" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:text="Optimize memory usage"
+                    android:textColor="@color/font"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro"
+                    android:text="Retraining will happen when memory usage is below\n25% or in an ideal state."
+                    android:layout_marginTop="6sp"
+                    android:textColor="@color/font_li"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/opt_mem"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15sp"
+                android:src="@drawable/toggle_off" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:text="Enable post-train optimization"
+                    android:textColor="@color/font"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro"
+                    android:text="Post training optimizations will compress the model\nand increase the accuracy."
+                    android:layout_marginTop="6sp"
+                    android:textColor="@color/font_li"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/post_train"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15sp"
+                android:src="@drawable/toggle_on" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="15sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro_bold"
+                    android:text="Optimize storage"
+                    android:textColor="@color/font"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sf_pro"
+                    android:text="If there are over 25 models in the models repository,\nthis will prune the initial models."
+                    android:layout_marginTop="6sp"
+                    android:textColor="@color/font_li"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/opt_stor"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15sp"
+                android:src="@drawable/toggle_on" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

@@ -12,9 +12,11 @@
     <color name="purple">#6E41BF</color>
     <color name="purpleD">#573396</color>
     <color name="orange">#EB8D41</color>
+    <color name="track">#C1C9D2</color>
     <color name="grey">#D9D9D9</color>
     <color name="green">#1FBF86</color>
     <color name="font">#ECF0F3</color>
+    <color name="font_li">#A1A5A9</color>
     <color name="tar">#1AFFFFFF</color>
     <color name="inside">#414851</color>
     <color name="stroke">#599CABC2</color>

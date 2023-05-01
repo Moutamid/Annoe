@@ -27,6 +27,13 @@ public class Constants {
     public static final String TRAIN_DATA = "ws://128.199.84.194:8000/training-logs/ws";
     public static final String VERSION = "version";
     public static final String CURRENT = "CURRENT";
+    public static final String ITR = "ITR";
+    public static final String MAT = "MAT";
+    public static final String opt_stor = "opt_stor";
+    public static final String post_train = "post_train";
+    public static final String opt_mem = "opt_mem";
+    public static final String opt_cpu = "opt_cpu";
+    public static final String opt_bat = "opt_bat";
 
     public static void checkApp(Activity activity) {
         String appName = "annoe";

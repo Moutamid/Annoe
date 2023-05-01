@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.fxn.stash.Stash;
 import com.koushikdutta.async.http.AsyncHttpClient;
 import com.koushikdutta.async.http.AsyncHttpResponse;
 import com.moutamid.annoe.R;
@@ -21,6 +22,7 @@ import org.json.JSONObject;
 import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.Random;
 
 import tech.gusavila92.websocketclient.WebSocketClient;
 
@@ -68,6 +70,10 @@ public class HomeFragment extends Fragment {
                 binding.retrain.setCardBackgroundColor(requireContext().getResources().getColor(R.color.purpleD));
                 startStressTest();
             }
+        });
+
+        binding.setting.setOnClickListener(v -> {
+            getParentFragmentManager().beginTransaction().replace(R.id.frame, new SettingFragment()).commit();
         });
 
         return binding.getRoot();
@@ -139,8 +145,10 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void run() {
                         binding.result.setText("Connection was closed successfully." + "\n\n" + binding.result.getText().toString());
-                        binding.retrain.setEnabled(true);
-                        binding.retrain.setCardBackgroundColor(requireContext().getResources().getColor(R.color.purple));
+                        if (!isRunning) {
+                            binding.retrain.setEnabled(true);
+                            binding.retrain.setCardBackgroundColor(requireContext().getResources().getColor(R.color.purple));
+                        }
                     }
                 });
             }
@@ -244,20 +252,27 @@ public class HomeFragment extends Fragment {
     }
 
     private void startStressTest() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                // Stress the CPU by calculating a large prime number
-                BigInteger prime = BigInteger.valueOf(Long.MAX_VALUE);
-                while (isRunning) {
-                    prime = prime.nextProbablePrime();
-                }
-                // Allocate a large amount of memory
-                int[] arr = new int[1000000];
-                for (int i = 0; i < 1000000 && isRunning; i++) {
-                    arr[i] = i;
-                }
+        new Thread(() -> {
+
+            while (isRunning) {
+                int itr = Stash.getInt(Constants.ITR, 100);
+                int mat = Stash.getInt(Constants.MAT, 100);
+                new Stress().stress(itr, mat);
             }
+
+            /*
+            // Stress the CPU by calculating a large prime number
+            BigInteger prime = BigInteger.valueOf(Long.MAX_VALUE);
+            while (isRunning) {
+                prime = prime.nextProbablePrime();
+            }
+            // Allocate a large amount of memory
+            int[] arr = new int[1000000];
+            for (int i = 0; i < 1000000 && isRunning; i++) {
+                arr[i] = i;
+            }
+
+            */
         }).start();
     }
 
@@ -278,4 +293,58 @@ public class HomeFragment extends Fragment {
 
         }
     }
+
+    public class Stress {
+
+        public Stress() {
+        }
+
+        public void stress(int iterations, int matrixSize) {
+            Random random = new Random();
+            double[][] matrixA = generateRandomMatrix(matrixSize, random);
+            double[][] matrixB = generateRandomMatrix(matrixSize, random);
+
+            for (int i = 0; i < iterations; i++) {
+                multiplyMatrices(matrixA, matrixB);
+                allocateMemory(matrixSize);
+            }
+        }
+
+        private double[][] generateRandomMatrix(int matrixSize, Random random) {
+            double[][] matrix = new double[matrixSize][matrixSize];
+            for (int i = 0; i < matrixSize; i++) {
+                for (int j = 0; j < matrixSize; j++) {
+                    matrix[i][j] = random.nextDouble();
+                }
+            }
+            return matrix;
+        }
+
+        private double[][] multiplyMatrices(double[][] a, double[][] b) {
+            int rowsA = a.length;
+            int colsA = a[0].length;
+            int colsB = b[0].length;
+            double[][] result = new double[rowsA][colsB];
+
+            for (int i = 0; i < rowsA; i++) {
+                for (int j = 0; j < colsB; j++) {
+                    double sum = 0;
+                    for (int k = 0; k < colsA; k++) {
+                        sum += a[i][k] * b[k][j];
+                    }
+                    result[i][j] = sum;
+                }
+            }
+            return result;
+        }
+
+        private void allocateMemory(int size) {
+            int[] array = new int[size * 10000];
+            for (int i = 0; i < array.length; i++) {
+                array[i] = i;
+            }
+        }
+    }
+
+
 }
