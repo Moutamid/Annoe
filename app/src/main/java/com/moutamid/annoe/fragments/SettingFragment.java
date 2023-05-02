@@ -107,15 +107,15 @@ public class SettingFragment extends Fragment {
             }
         });
 
-        binding.postTrain.setOnClickListener(v -> {
-            if (Stash.getBoolean(Constants.post_train, true)){
-                Stash.put(Constants.post_train, false);
-                binding.postTrain.setImageResource(R.drawable.toggle_off);
-            } else {
-                Stash.put(Constants.post_train, true);
-                binding.postTrain.setImageResource(R.drawable.toggle_on);
-            }
-        });
+//        binding.postTrain.setOnClickListener(v -> {
+//            if (Stash.getBoolean(Constants.post_train, true)){
+//                Stash.put(Constants.post_train, false);
+//                binding.postTrain.setImageResource(R.drawable.toggle_off);
+//            } else {
+//                Stash.put(Constants.post_train, true);
+//                binding.postTrain.setImageResource(R.drawable.toggle_on);
+//            }
+//        });
 
         return binding.getRoot();
     }
@@ -139,11 +139,11 @@ public class SettingFragment extends Fragment {
             binding.optMem.setImageResource(R.drawable.toggle_off);
         }
 
-        if (Stash.getBoolean(Constants.post_train, true)){
-            binding.postTrain.setImageResource(R.drawable.toggle_on);
-        } else {
-            binding.postTrain.setImageResource(R.drawable.toggle_off);
-        }
+//        if (Stash.getBoolean(Constants.post_train, true)){
+//            binding.postTrain.setImageResource(R.drawable.toggle_on);
+//        } else {
+//            binding.postTrain.setImageResource(R.drawable.toggle_off);
+//        }
 
         if (Stash.getBoolean(Constants.opt_stor, true)){
             binding.optStor.setImageResource(R.drawable.toggle_on);
