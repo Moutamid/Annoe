@@ -49,6 +49,8 @@ public class HomeFragment extends Fragment {
             binding.result.setText("");
             createWebSocketClient();
             createTrainClient();
+
+            binding.switchStress.setClickable(false);
             binding.retrain.setEnabled(false);
             binding.retrain.setCardBackgroundColor(requireContext().getResources().getColor(R.color.purpleD));
         });
@@ -147,6 +149,7 @@ public class HomeFragment extends Fragment {
                         binding.result.setText("Connection was closed successfully." + "\n\n" + binding.result.getText().toString());
                         if (!isRunning) {
                             binding.retrain.setEnabled(true);
+                            binding.switchStress.setClickable(true);
                             binding.retrain.setCardBackgroundColor(requireContext().getResources().getColor(R.color.purple));
                         }
                     }
