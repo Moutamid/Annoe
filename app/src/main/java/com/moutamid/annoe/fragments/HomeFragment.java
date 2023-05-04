@@ -62,14 +62,9 @@ public class HomeFragment extends Fragment {
             if (isRunning){
                 isRunning = false;
                 binding.switchStress.setImageResource(R.drawable.switch_off);
-                binding.retrain.setEnabled(true);
-                binding.retrain.setCardBackgroundColor(requireContext().getResources().getColor(R.color.purple));
-                // thread.stop();
             } else {
                 isRunning = true;
                 binding.switchStress.setImageResource(R.drawable.switch_on);
-                binding.retrain.setEnabled(false);
-                binding.retrain.setCardBackgroundColor(requireContext().getResources().getColor(R.color.purpleD));
                 startStressTest();
             }
         });
@@ -147,11 +142,9 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void run() {
                         binding.result.setText("Connection was closed successfully." + "\n\n" + binding.result.getText().toString());
-                        if (!isRunning) {
-                            binding.retrain.setEnabled(true);
-                            binding.switchStress.setClickable(true);
-                            binding.retrain.setCardBackgroundColor(requireContext().getResources().getColor(R.color.purple));
-                        }
+                        binding.retrain.setEnabled(true);
+                        binding.switchStress.setClickable(true);
+                        binding.retrain.setCardBackgroundColor(requireContext().getResources().getColor(R.color.purple));
                     }
                 });
             }
