@@ -51,6 +51,11 @@ public class HomeFragment extends Fragment {
             createTrainClient();
 
             binding.switchStress.setClickable(false);
+            if (isRunning){
+                binding.switchStress.setImageResource(R.drawable.stress_disable);
+            } else {
+                binding.switchStress.setImageResource(R.drawable.relax_disable);
+            }
             binding.retrain.setEnabled(false);
             binding.retrain.setCardBackgroundColor(requireContext().getResources().getColor(R.color.purpleD));
         });
@@ -144,6 +149,11 @@ public class HomeFragment extends Fragment {
                         binding.result.setText("Connection was closed successfully." + "\n\n" + binding.result.getText().toString());
                         binding.retrain.setEnabled(true);
                         binding.switchStress.setClickable(true);
+                        if (isRunning){
+                            binding.switchStress.setImageResource(R.drawable.switch_on);
+                        } else {
+                            binding.switchStress.setImageResource(R.drawable.switch_off);
+                        }
                         binding.retrain.setCardBackgroundColor(requireContext().getResources().getColor(R.color.purple));
                     }
                 });
@@ -297,6 +307,7 @@ public class HomeFragment extends Fragment {
 
         public void stress(int iterations, int matrixSize) {
             Random random = new Random();
+            iterations *= 100;
             double[][] matrixA = generateRandomMatrix(matrixSize, random);
             double[][] matrixB = generateRandomMatrix(matrixSize, random);
 

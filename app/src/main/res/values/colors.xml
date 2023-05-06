@@ -20,4 +20,9 @@
     <color name="tar">#1AFFFFFF</color>
     <color name="inside">#414851</color>
     <color name="stroke">#599CABC2</color>
+    <color name="toggle_dis">#66DFDEDE</color>
+    <color name="stress_dis">#66BF4141</color>
+    <color name="relax_dis">#6641B7BF</color>
+    <color name="relax_dis_t">#E6151E29</color>
+    <color name="toggle">#DFDEDE</color>
 </resources>

@@ -334,7 +334,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="15sp"
-                android:src="@drawable/toggle_on" />
+                android:src="@drawable/toggle_disable" />
 
         </LinearLayout>
 
