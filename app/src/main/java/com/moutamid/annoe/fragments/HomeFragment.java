@@ -266,19 +266,6 @@ public class HomeFragment extends Fragment {
                 new Stress().stress(itr, mat);
             }
 
-            /*
-            // Stress the CPU by calculating a large prime number
-            BigInteger prime = BigInteger.valueOf(Long.MAX_VALUE);
-            while (isRunning) {
-                prime = prime.nextProbablePrime();
-            }
-            // Allocate a large amount of memory
-            int[] arr = new int[1000000];
-            for (int i = 0; i < 1000000 && isRunning; i++) {
-                arr[i] = i;
-            }
-
-            */
         }).start();
     }
 
